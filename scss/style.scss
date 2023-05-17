@@ -10,12 +10,29 @@ body {
 
 .container {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 920px;
   padding: 135px 20px 50px;
   background-color: $WHITE;
   border-radius: 25px;
+
   box-shadow: 0px 0px 18px 2px rgba(82, 82, 82, 1);
+  @media (min-width: 1024px) {
+    max-width: 920px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    overflow: hidden;
+  }
+}
+
+.cover,
+.shadow {
+  @media (min-width: 1024px) {
+    display: none;
+  }
 }
 
 .cover {
@@ -38,21 +55,56 @@ body {
   z-index: 2;
 }
 
-// Content
+.desktop {
+  position: relative;
+  display: none;
+  @media (min-width: 1024px) {
+    display: flex;
+    width: 50%;
+  }
 
-// 1024px
+  &__cover {
+    position: absolute;
+    top: -4%;
+    left: -22%;
+    z-index: 2;
+  }
+
+  &__shadow {
+    position: absolute;
+    top: -117%;
+    left: -135%;
+    z-index: 1;
+  }
+
+  &__box {
+    position: absolute;
+    top: 39%;
+    left: -25%;
+    z-index: 3;
+  }
+}
+
+// Content
 
 .content {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  @media screen and (min-width: 1024px) {
+    width: 50%;
+  }
 
   &__title {
     font-size: 30px;
     font-weight: 700;
-    text-transform: uppercase;
     text-align: center;
+    text-transform: uppercase;
     color: $VeryDarkDesaturatedBlue;
     margin-bottom: 35px;
+    @media (min-width: 1024px) {
+      text-align: left;
+    }
   }
 
   &__accordion {
@@ -80,6 +132,7 @@ body {
       }
 
       &-descr {
+        display: none;
         font-size: 13px;
         line-height: 1.4;
         color: $DarkGrayishBlue;
@@ -97,4 +150,12 @@ body {
       }
     }
   }
+}
+
+.active .content__accordion_item-descr {
+  display: block;
+}
+
+.active .arrow {
+  transform: rotate(180deg);
 }
