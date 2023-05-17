@@ -164,12 +164,16 @@ body {
 .content__accordion_item:first-child {
   padding-top: 0;
 }
+.content__accordion_item:hover .content__accordion_item-title {
+  color: orange;
+}
 .content__accordion_item-title {
   position: relative;
   font-size: 14px;
   font-weight: 400;
   color: #4a4b5e;
   margin-bottom: 15px;
+  transition: color 0.2s ease-in-out;
 }
 .content__accordion_item-descr {
   display: none;
@@ -194,4 +198,8 @@ body {
 
 .active .arrow {
   transform: rotate(180deg);
+}
+
+.active h5 {
+  font-weight: 700;
 }/*# sourceMappingURL=style.css.map */

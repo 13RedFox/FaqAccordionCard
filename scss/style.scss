@@ -120,6 +120,9 @@ body {
       &:first-child {
         padding-top: 0;
       }
+      &:hover &-title {
+        color: orange;
+      }
 
       &-title {
         position: relative;
@@ -127,6 +130,7 @@ body {
         font-weight: 400;
         color: $VeryDarkGrayishBlue;
         margin-bottom: 15px;
+        transition: color 0.2s ease-in-out;
       }
 
       &-descr {
@@ -156,4 +160,8 @@ body {
 
 .active .arrow {
   transform: rotate(180deg);
+}
+
+.active h5 {
+  font-weight: 700;
 }
